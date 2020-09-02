@@ -1,8 +1,8 @@
 FROM php:7.2-fpm-alpine
 
-MAINTAINER Andrew<Andrew.Chen@aswatson.com>
+MAINTAINER Andrew<ustccq@gmail.com>
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+#RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
@@ -45,7 +45,7 @@ RUN apk add --no-cache --virtual .build-deps \
     && apk del -f .build-deps
 
 #RUN composer config -g repo.packagist composer https://packagist.laravel-china.org
-RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+#RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 # install prestissimo
 RUN composer global require "hirak/prestissimo"
@@ -56,7 +56,7 @@ RUN composer global require "laravel/envoy"
 #install laravel installer
 RUN composer global require "laravel/installer"
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+#RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk update && apk add -u nodejs npm libpng-dev python2
 
@@ -67,9 +67,9 @@ RUN apk update \
   && rm -rf /var/cache/apk/* \
   && /bin/sh \
   && touch ~/.bashrc \
-  && curl -o- -L https://yarnpkg.com/install.sh | bash \
-  && yarn config set registry 'https://registry.npm.taobao.org' \
-  && npm set registry=https://registry.npm.taobao.org
+  && curl -o- -L https://yarnpkg.com/install.sh | bash
+#  && yarn config set registry 'https://registry.npm.taobao.org' \
+#  && npm set registry=https://registry.npm.taobao.org
 #  && npm install --registry=https://registry.npm.taobao.org \
 #  && npm run prod
 
