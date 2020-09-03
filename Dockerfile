@@ -69,8 +69,7 @@ RUN apk update \
   && rm -rf /var/cache/apk/* \
   && /bin/sh \
   && touch ~/.bashrc \
-  && curl -o- -L https://yarnpkg.com/install.sh | bash \ 
-  && mkdir /var/run
+  && curl -o- -L https://yarnpkg.com/install.sh | bash 
 #  && yarn config set registry 'https://registry.npm.taobao.org' \
 #  && npm set registry=https://registry.npm.taobao.org
 #  && npm install --registry=https://registry.npm.taobao.org \
