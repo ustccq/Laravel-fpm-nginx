@@ -13,6 +13,7 @@ RUN apk add --no-cache --virtual .build-deps \
         postgresql-dev \
         sqlite-dev \
     && apk add --no-cache \
+        nginx \
         curl \
         git \
         imagemagick \
@@ -61,6 +62,8 @@ RUN composer global require "laravel/installer"
 RUN apk update && apk add -u nodejs npm libpng-dev python2
 
 ENV PATH /root/.yarn/bin:$PATH
+
+RUN rc-update add nginx default
 
 RUN apk update \
   && apk add curl bash binutils tar \
