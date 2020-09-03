@@ -63,8 +63,6 @@ RUN apk update && apk add -u nodejs npm libpng-dev python2
 
 ENV PATH /root/.yarn/bin:$PATH
 
-RUN rc-update add nginx default
-
 RUN apk update \
   && apk add curl bash binutils tar \
   && rm -rf /var/cache/apk/* \
@@ -79,3 +77,9 @@ RUN apk update \
 ADD laravel.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www
+
+COPY entrypoint.sh /var/www/
+
+RUN chmod 755 //var/www/entrypoint.sh
+
+ENTRYPOINT ["/var/www/entrypoint.sh"]
