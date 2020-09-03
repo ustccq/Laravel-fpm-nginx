@@ -76,4 +76,6 @@ RUN apk update \
 #  && npm install --registry=https://registry.npm.taobao.org \
 #  && npm run prod
 
+ADD laravel.conf /etc/nginx/conf.d/default.conf
+
 WORKDIR /var/www
