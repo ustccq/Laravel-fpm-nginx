@@ -78,8 +78,8 @@ ADD laravel.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www
 
-COPY entrypoint.sh /var/www/
+#COPY entrypoint.sh /var/www/
 
-RUN chmod 755 //var/www/entrypoint.sh
+#RUN chmod 755 /var/www/entrypoint.sh
 
-ENTRYPOINT ["/var/www/entrypoint.sh"]
+#ENTRYPOINT ["/var/www/entrypoint.sh"]
