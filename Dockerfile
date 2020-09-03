@@ -18,12 +18,12 @@ RUN apk add --no-cache --virtual .build-deps \
         git \
         imagemagick \
         mysql-client \
-		icu-dev \
-		openldap-dev \
+	icu-dev \
+	openldap-dev \
         postgresql-libs \
-		libpng \
-		libpng-dev \
-		telnet \
+	libpng \
+	libpng-dev \
+	busybox-extras \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
     && docker-php-ext-install \
@@ -38,13 +38,13 @@ RUN apk add --no-cache --virtual .build-deps \
         tokenizer \
         xml \
         zip \
-		gd \
-		ldap \
-		soap \
-		exif \
-		opcache \
-		&& curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-		&& apk del -f .build-deps
+	gd \
+	ldap \
+	soap \
+	exif \
+	opcache \
+	&& curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
+	&& apk del -f .build-deps
 
 #RUN composer config -g repo.packagist composer https://packagist.laravel-china.org
 #RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
