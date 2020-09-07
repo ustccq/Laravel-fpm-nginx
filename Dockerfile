@@ -76,6 +76,7 @@ RUN apk update \
 #  && npm run prod
 
 ADD laravel.conf /etc/nginx/conf.d/default.conf
+Add ngx.conf /etc/nginx/nginx.conf
 
 WORKDIR /var/www
 
