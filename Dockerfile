@@ -50,13 +50,13 @@ RUN apk add --no-cache --virtual .build-deps \
 #RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 # install prestissimo
-RUN composer global require "hirak/prestissimo"
+#RUN composer global require "hirak/prestissimo"
 
 # install laravel envoy
-RUN composer global require "laravel/envoy"
+#RUN composer global require "laravel/envoy"
 
 #install laravel installer
-RUN composer global require "laravel/installer"
+#RUN composer global require "laravel/installer"
 
 #RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
